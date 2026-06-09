@@ -48,9 +48,9 @@ jobs:
         with:
           version: ${{ inputs.pnpm-version }}
       - name: Install dependencies
-        run: pnpm install
+        run: npm install
       - name: Build
-        run: pnpm build
+        run: npm run release --tag-${{ github.event.release.tag_name }}
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
